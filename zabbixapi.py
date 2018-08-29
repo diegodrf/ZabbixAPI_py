@@ -5,15 +5,13 @@ import json
 class Zabbix:
     def __init__(self, server):
         self.server = '{}/api_jsonrpc.php'.format(server)
-        self.jsonrpc = '2.0'
         self.headers = {'Content-Type': 'application/json-rpc'}
-
-        self.data = {'jsonrpc': self.jsonrpc,
+        self.id = '1'
+        self.data = {'jsonrpc': '2.0',
                      'method': '',
-                     'id': '1',
+                     'id': self.id,
                      'params': {},
                      }
-        self.id = '1'
 
     def apiinfo(self):
         self.data['method'] = 'apiinfo.version'
@@ -171,16 +169,3 @@ class Zabbix:
 
     def script(self, method, query={'output': 'extend'}, element='script'):
         return self.__data(method, query, element)
-
-
-if __name__ == '__main__':
-
-    zabbix = Zabbix('http://10.241.0.4/zabbix')
-
-    zabbix.apiinfo()
-    zabbix.login(user='API', password='APIzabbix')
-
-    n = zabbix.host()
-
-
-    print(n)
