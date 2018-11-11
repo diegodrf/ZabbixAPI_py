@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+ZabbixAPI_py/__init__.py
+ZabbixAPI_py/zabbixapi.py
+ZabbixAPI_py.egg-info/PKG-INFO
+ZabbixAPI_py.egg-info/SOURCES.txt
+ZabbixAPI_py.egg-info/dependency_links.txt
+ZabbixAPI_py.egg-info/requires.txt
+ZabbixAPI_py.egg-info/top_level.txt
