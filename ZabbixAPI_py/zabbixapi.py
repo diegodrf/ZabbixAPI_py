@@ -1,6 +1,6 @@
 import requests
 import json
-
+from colorama import Fore, Style
 
 class Zabbix:
     def __init__(self, server):
@@ -16,7 +16,6 @@ class Zabbix:
     def apiinfo(self):
         self.data['method'] = 'apiinfo.version'
         response = requests.post(self.server, json.dumps(self.data), headers=self.headers)
-
         return response.json()['result']
 
     def login(self, user, password):
@@ -24,16 +23,26 @@ class Zabbix:
         self.data['params'] = {'user': user, 'password': password}
 
         response = requests.post(self.server, json.dumps(self.data), headers=self.headers)
+        try:
+            self.data.setdefault('auth', response.json()['result'])
+            self.id = response.json()['id']
 
-        self.data.setdefault('auth', response.json()['result'])
-        self.id = response.json()['id']
-
-        return response.json()['result']
+            return response.json()['result']
+        except:
+            error_message = 'Error: {}\nMessage: {}'.format(response.json()['error']['message'],
+                                                            response.json()['error']['data'])
+            return Fore.RED + error_message + Style.RESET_ALL
 
     def __data(self, method, query, element):
         self.data['method'] = '{}.{}'.format(element, method)
         self.data['params'] = query
-        return requests.post(self.server, json.dumps(self.data), headers=self.headers).json()['result']
+        response = requests.post(self.server, json.dumps(self.data), headers=self.headers)
+        try:
+            return response.json()['result']
+        except:
+            error_message = 'Error: {}\nMessage: {}'.format(response.json()['error']['message'],
+                                                            response.json()['error']['data'])
+            return Fore.RED + error_message + Style.RESET_ALL
 
     def host(self, method, query={'output': 'extend'}, element='host'):
         return self.__data(method, query, element)

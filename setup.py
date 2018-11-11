@@ -5,12 +5,13 @@ with open("README.md", "r") as fh:
 
 setup(
     name='ZabbixAPI_py',
-    version='0.2.0',
+    version='1.0.0',
     author='Diego Rodrigues',
     author_email='diego.rdfaria@gmail.com',
     packages=['ZabbixAPI_py'],
     install_requires=[
-        'requests'
+        'requests',
+        'colorama'
     ],
     description='Biblioteca para contectar na API do Zabbix',
     long_description=long_description,
