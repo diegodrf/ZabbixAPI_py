@@ -21,4 +21,4 @@ Esta biblioteca foi criada com o intuito de facilitar as consultas junto a API d
 
 ##
 
-**O valor padrão para o parâmetro q****uery é {"output": "extend"}. Ou seja, se nada for passado neste parâmetro, a consulta será feita utilizando este modo de retorno na API.**
+**O valor padrão para o parâmetro query é {"output": "extend"}. Ou seja, se nada for passado neste parâmetro, a consulta será feita utilizando este modo de retorno na API.**
