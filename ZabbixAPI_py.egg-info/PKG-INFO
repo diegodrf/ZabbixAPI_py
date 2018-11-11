@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: ZabbixAPI-py
-Version: 0.2.0
+Version: 1.0.1
 Summary: Biblioteca para contectar na API do Zabbix
 Home-page: https://github.com/diegodrf/ZabbixAPI_py
 Author: Diego Rodrigues
@@ -31,7 +31,7 @@ Description: # ZabbixAPI
         
         ##
         
-        **O valor padrão para o parâmetro q****uery é {"output": "extend"}. Ou seja, se nada for passado neste parâmetro, a consulta será feita utilizando este modo de retorno na API.**
+        **O valor padrão para o parâmetro query é {"output": "extend"}. Ou seja, se nada for passado neste parâmetro, a consulta será feita utilizando este modo de retorno na API.**
 Keywords: zabbix,api
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
